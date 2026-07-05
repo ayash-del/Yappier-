@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Experiments Ayash</title>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Bungee&family=Michroma&display=swap" rel="stylesheet">
+
+
+    <style>
+    {
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background-color: black;
+             font-family: 'DotGothic16', sans-serif;
+            
+        }
+
+        /* Video Background Frame */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+          
+        }
+
+        .video {
+            width: 95%;
+            height: 95%;
+            object-fit: cover;
+        }  
+           
+                   /* Responsive Main Content Wrapper */
+        .main-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            gap: 15px; /* Safely space elements vertically without breaking */
+            text-align: center;
+        }
+
+        /* Typography Styling */
+        .overlay-text {
+            color: red;
+            font-size: clamp(0.8rem, 2.6vw, 3rem);
+            animation: flicker 2s infinite;
+            margin-top: 10px;
+            white-space: nowrap;
+            opacity:0;
+        }
+
+        .qrn {
+            color: orange;
+            font-size: clamp(1.2rem, 4.2vw, 2.1rem); 
+            margin-top:0px;
+            margin-bottom:50px;
+            white-space: nowrap;
+        }
+
+        .hi {
+            color: white;
+            font-size: clamp(1.4rem, 4vw, 2.5rem);
+            margin: 5px 0;
+        }
+
+        .who {
+            color: orange;
+            font-size: clamp(1rem, 3vw, 1.8rem); 
+            margin: 0;
+        }
+
+        /* Chemistry Images Grid Setup */
+        .hobby-grid {
+            display: flex;
+            justify-content: center;
+            transform:translate(-50,-50);
+            align-items: flex-end;
+            gap:20px ; 
+            width:clamp(300px, 60%, 500px);
+            max-width: 500px;
+            margin: 15px 0;
+            
+        }
+
+        .hobby-grid img {
+            opacity: 0.8;
+            height: auto;
+            border-radius:10px;
+        }
+
+        .img-chem1 { width: 23.5%; aspect-ratio: 1604/3025; }
+        .img-chem2 { width: 35%; aspect-ratio: 1791/2276; }
+        .img-chem3 { width: 32%; aspect-ratio: 2523/3547; }
+        
+                    
+
+        /* Buttons & Link Formatting */
+        .lain {
+            background-color: transparent;
+            border:2px solid white;
+            border-radius: 100px;
+            color: red;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            padding: 8px 12px;
+            cursor: pointer;            
+             font-family: 'DotGothic16', sans-serif;
+            transition: 0.2s;
+        }
+        .weird {
+            color: orange;
+            font-size: clamp(1rem, 3.5vw, 2rem); 
+            margin: 2px 0;
+        }
+        .row-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom:50px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .details {
+            color: rgb(0, 255, 119);
+            font-size: clamp(1.2rem, 3.8vw, 2.2rem); 
+            margin: 0;
+        }
+
+        .img-face {
+            width: 60px;
+            aspect-ratio: 760/424;
+            object-fit: cover;
+        }
+
+        /* War Photo Container */
+        .us-container {
+            width:clamp(300px, 100%, 400px);
+            max-width: 290px;
+            margin: 10px 0;
+        }
+        .us-container img {
+            width:clamp(180px, 100%, 240px);
+            aspect-ratio: 588/390;
+            opacity: 0.7;
+        }
+          
+        /* Poetry & Anime Sections */
+        .poetry-section {
+            color: rgb(163, 150, 238);
+            font-size: clamp(1.1rem, 3.2vw, 1.8rem); 
+            display: flex;
+            flex-direction: column;            
+            gap: 0px;
+            margin:10px 10px;
+            max-width: 700px;
+            
+        }
+        .poetry-section p { margin: 0; }
+
+        .rd {
+            color: red;
+            font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+            text-decoration: underline;
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+        
+        .link {
+            width: clamp(180px, 40%, 450px);   
+            aspect-ratio: 16/9;               
+            border: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+               @keyframes flicker {
+            0%, 100% { opacity: 0.45; color: red; }
+            40% { opacity: 0.3; color: red; }
+            60% { opacity: 0.4; color: red; }
+            80% { opacity: 0.2; color: red; }
+        } 
+        .lain-dancing {
+        position :absolute;
+        bottom:20px;
+            display:flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap:clamp(10px, 70%, 500px); 
+           width: 70%;
+            margin: 10px 0;
+             }
+      .lain-dancing img {
+            opacity: 0.9;
+            height: auto;
+        }
+
+        .img-lain2 { width: 25%; aspect-ratio: auto; }
+        .img-lain1 { width: 25%; aspect-ratio: auto; }
+        
+        .dancing-lain2 {
+            position : fixed; 
+            top:68%;
+            z-index : 10;
+            left:70%;
+            opacity:0.6;
+            aspect-ratio: auto;
+            width:100px;
+            margin-right:100px;
+        }
+        
+        .discord {
+            position:relative;
+            top:0%;
+            left:5%;
+            transform :translate(-50%, -50%) ;
+            aspect-ratio : auto;
+            width:10%;
+            border-radius:250px;
+            
+        }
+       
+  
+        }
+     </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <video autoplay loop muted playsinline class="video">
+            <source src="4.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="main-wrapper">
+        <h1 class="overlay-text">No Matter Where You Are....Everyone Is Always connected</h1>
+        
+        <p class="qrn">《وَٱلنَّجۡمِ إِذَا هَوَىٰ مَا ضَلَّ صَاحِبُكُمۡ وَمَا غَوَىٰ》</p>
+        
+        <h3 class="hi">hiii...i'm Ayash</h3>
+        <p class="who">nature🌊 | hv⚡ | chemical synthesis😇 | Coding🤓</p>
+        
+        <div class="hobby-grid">
+            <img class="img-chem1" src="2.jpg" alt="vial 1">
+            <img class="img-chem2" src="1.jpg" alt="vial 2">
+            <img class="img-chem3" src="3.jpg" alt="vial 3">
+        </div>
+
+        <a href="https://youtu.be/shqqUyhbWoI?si=NYHdLpUCL3IP41Ml" target="_blank">
+            <button class="lain">Connect</button>
+        </a>
+         <div class="row-details">   
+        <p class="weird">Fun Fact!..cloroform tastes sweet</p>
+        <img class="img-face" src="5.jpg" alt="face photo"> 
+    </div>
+    
+            <p class="details">🇮🇷 PRO PALESTINE 🇵🇸</p>
+        <img class="dancing-lain2" src="lain-dance.gif">
+
+        <div class="us-container">
+            <img src="0.jpg" alt="tank scene">
+        </div>
+             
+        <div class="poetry-section">
+            <p>من يسكن البحر ويحبه الناس ؟</p>
+            <p>Fav poet: Al-mutanabbi</p>
+            <p>Fav anime: Terror In Resonance - Steins;Gate - Fate/Zero</p>
+        </div>
+
+        <a href="https://drive.google.com/file/d/1HptspirSiZEm72FEHe9VNGxFtXGfCHvP/view?usp=drivesdk" target="_blank" class="rd">
+            Codyslab Uranium Refining
+        </a>
+<div>
+        <iframe class="link" src="https://drive.google.com/file/d/1dr0kIdPkFjYexq18ikimSPYccLrdFj99/preview"></iframe>
+    </div>
+    <div class="lain-dancing">
+            <img class="img-lain1" src="lain-berry-nice.gif">
+            <img class="img-lain2" src="lain.gif">
+        </div>
+        
+        <a href="https://discord.com/users/1085987019194372188" target="_blank">
+            <img class="discord" src="discord.jpg">
+        </a>
+        
+
+    <script>
+    document.querySelector('video').playbackRate = 0.5;
+    </script>
+</body>
+</html>
